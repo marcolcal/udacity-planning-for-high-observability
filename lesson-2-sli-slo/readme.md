@@ -63,3 +63,7 @@ Login to Grafana with `admin` for the username and `prom-operator` for the passw
 #had issues with the kubernetes version and changed on the modules 
 #this commmand showed me the version supported on my aws
 aws eks describe-addon-versions
+
+
+#How did I install my grafana stack with helm
+#first create a secret
