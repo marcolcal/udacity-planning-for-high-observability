@@ -13,7 +13,7 @@ resource "aws_iam_policy" "eks_cluster_role_cloudwatch_policy" {
          "logs:DescribeLogStreams",
          "logs:CreateLogGroup",
          "logs:CreateLogStream",
-         "logs:PutLogEvents"
+         "logs:PutLogEvents",
          "logs:TagLogGroup", // Added to allow tagging log groups
          "logs:UntagLogGroup" // Added to allow untagging log groups
        ],
@@ -46,7 +46,7 @@ POLICY
        "Action": [
            "logs:CreateLogGroup",
            "logs:CreateLogStream",
-           "logs:PutLogEvents"
+           "logs:PutLogEvents",
            "logs:TagLogGroup", // Added to allow tagging log groups
            "logs:UntagLogGroup" // Added to allow untagging log groups
        ],
