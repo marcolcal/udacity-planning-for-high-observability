@@ -10,6 +10,11 @@
      }
    }
  }
+ 
+resource "aws_iam_role_policy_attachment" "tag_policy_attachment" {
+  role       = "voclabs"  # Replace with your actual role name
+  policy_arn = aws_iam_policy.tag_policy_permissions.arn
+}
 
   resource "aws_iam_role" "eks_cluster_role" {
    name               = "app-${var.name}-eks-cluster-role"

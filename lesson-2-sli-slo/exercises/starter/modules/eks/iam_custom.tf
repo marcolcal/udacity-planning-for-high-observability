@@ -24,6 +24,25 @@ resource "aws_iam_policy" "eks_cluster_role_cloudwatch_policy" {
 POLICY
 }
 
+resource "aws_iam_policy" "tag_policy_permissions" {
+  name        = "tag_policy_permissions"
+  description = "Allows tagging IAM policies"
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Action = [
+          "iam:TagPolicy",
+          "iam:UntagPolicy"
+        ],
+        Resource = "*"
+      }
+    ]
+  })
+}
+
  resource "aws_iam_policy" "eks_node_instance_policy" {
    name        = "app-${var.name}-instance-policy"
    description = "Policy allowing access to ${var.name} resources."
