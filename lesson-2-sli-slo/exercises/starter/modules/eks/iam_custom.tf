@@ -14,6 +14,8 @@ resource "aws_iam_policy" "eks_cluster_role_cloudwatch_policy" {
          "logs:CreateLogGroup",
          "logs:CreateLogStream",
          "logs:PutLogEvents"
+         "logs:TagLogGroup", // Added to allow tagging log groups
+         "logs:UntagLogGroup" // Added to allow untagging log groups
        ],
        "Resource": "*"
      }
@@ -45,6 +47,8 @@ POLICY
            "logs:CreateLogGroup",
            "logs:CreateLogStream",
            "logs:PutLogEvents"
+           "logs:TagLogGroup", // Added to allow tagging log groups
+           "logs:UntagLogGroup" // Added to allow untagging log groups
        ],
        "Resource": [
            "arn:aws:logs:*:*:log-group:*",

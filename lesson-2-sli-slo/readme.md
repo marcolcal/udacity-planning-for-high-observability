@@ -56,3 +56,10 @@ Do the same for Grafana. You'll need to select each load balancer instance and c
 Login to Grafana with `admin` for the username and `prom-operator` for the password.
 
 7. At the end of your exercise, run `terraform destroy` and allow it to destroy all your resources
+
+
+#troubleshooting commands used during setup
+
+#had issues with the kubernetes version and changed on the modules 
+#this commmand showed me the version supported on my aws
+aws eks describe-addon-versions
