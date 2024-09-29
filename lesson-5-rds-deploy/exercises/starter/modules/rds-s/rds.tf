@@ -2,7 +2,7 @@ variable primary_db_cluster_arn {}
 
 resource "aws_rds_cluster_parameter_group" "cluster_pg-s" {
   name   = "udacity-pg-s"
-  family = "aurora5.6"
+  family = "aurora5.7"
 
   parameter {
     name  = "binlog_format"    
@@ -29,7 +29,7 @@ resource "aws_rds_cluster" "udacity_cluster-s" {
   vpc_security_group_ids   = [aws_security_group.db_sg_2.id]
   db_subnet_group_name     = aws_db_subnet_group.udacity_db_subnet_group.name
   engine_mode              = "provisioned"
-  engine_version           = "5.6.mysql_aurora.1.19.1" 
+  engine_version           = "5.7.mysql_aurora.2.12.3" 
   engine                  = "aurora-mysql" # This specifies Aurora MySQL
   skip_final_snapshot      = true
   storage_encrypted        = false
