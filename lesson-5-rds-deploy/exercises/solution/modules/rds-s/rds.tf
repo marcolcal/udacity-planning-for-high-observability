@@ -30,6 +30,7 @@ resource "aws_rds_cluster" "udacity_cluster-s" {
   db_subnet_group_name     = aws_db_subnet_group.udacity_db_subnet_group.name
   engine_mode              = "provisioned"
   engine_version           = "5.6.mysql_aurora.1.19.1" 
+  engine                  = "aurora-mysql" # This specifies Aurora MySQL
   skip_final_snapshot      = true
   storage_encrypted        = false
   backup_retention_period  = 5
@@ -42,6 +43,7 @@ resource "aws_rds_cluster_instance" "udacity_instance-s" {
   count                = 2
   identifier           = "udacity-db-instance-${count.index}-s"
   cluster_identifier   = aws_rds_cluster.udacity_cluster-s.id
+  engine                  = "aurora-mysql" # This specifies Aurora MySQL
   instance_class       = "db.t2.small"
   db_subnet_group_name = aws_db_subnet_group.udacity_db_subnet_group.name
 }
