@@ -30,12 +30,12 @@ resource "aws_rds_cluster" "udacity_cluster-s" {
   db_subnet_group_name     = aws_db_subnet_group.udacity_db_subnet_group.name
   engine_mode              = "provisioned"
   engine_version           = "5.7.mysql_aurora.2.12.3" 
-  engine                  = "aurora-mysql" # This specifies Aurora MySQL
+  engine                   = "aurora-mysql" # This specifies Aurora MySQL
   skip_final_snapshot      = true
   storage_encrypted        = false
   replication_source_identifier = var.primary_db_cluster_arn
   source_region            = "us-east-2"
-  backup_retention_period = 5
+  backup_retention_period  = 5
   depends_on = [aws_rds_cluster_parameter_group.cluster_pg-s]
 }
 

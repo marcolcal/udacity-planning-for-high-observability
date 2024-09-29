@@ -26,7 +26,6 @@ locals {
   module "vpc_west" {
    source     = "./modules/vpc"
    cidr_block = "10.100.0.0/16"
-
    account_owner = local.name
    name          = "${local.name}-project"
    azs           = ["us-west-1b", "us-west-1c"]

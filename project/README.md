@@ -31,6 +31,8 @@ Clone the appropriate git repo with the starter code. There will be 2 folders. Z
     ```shell
     aws ec2 create-restore-image-task --object-key ami-0ec6fdfb365e5fc00.bin --bucket udacity-srend --name "udacity-<your_name>"
     ```
+    "ImageId": "ami-0b1d3fd8334c40be5"
+
     <!-- - Replace the owner field in `_data.tf` with your Amazon owner ID assigned on the AMI (you can get this in the console by going to EC2 - AMIs and selecting the Owned by me at the top filter) -->
     - Take note of that AMI ID the script just output. Copy the AMI to `us-east-2` and `us-west-1`:
         - `aws ec2 copy-image --source-image-id <your-ami-id-from-above> --source-region us-east-1 --region us-east-2 --name "udacity-<your_name>"`
@@ -39,7 +41,18 @@ Clone the appropriate git repo with the starter code. There will be 2 folders. Z
     - Make note of the ami output from the above 2 commands. You'll need to put this in the `ec2.tf` file for `zone1` for `us-east-2` and in `ec2.tf` file for `zone2` for `us-west-1` respectively
 
     <!-- - Set your aws cli config to `us-east-2` -->
-
+[cloudshell-user@ip-10-136-35-243 ~]$ aws ec2 create-restore-image-task --object-key ami-0ec6fdfb365e5fc00.bin --bucket udacity-srend --name "udacity-malfaro"
+{
+    "ImageId": "ami-0b1d3fd8334c40be5"
+}
+[cloudshell-user@ip-10-136-35-243 ~]$ aws ec2 copy-image --source-image-id ami-0b1d3fd8334c40be5 --source-region us-east-1 --region us-east-2 --name "udacity-malfaro"
+{
+    "ImageId": "ami-0c47b4cb39d647504"
+}
+[cloudshell-user@ip-10-136-35-243 ~]$ aws ec2 copy-image --source-image-id ami-0b1d3fd8334c40be5 --source-region us-east-1 --region us-west-1 --name "udacity-malfaro"
+{
+    "ImageId": "ami-00489f404a6148264"
+}
 3. Close your CloudShell. Change your region to `us-east-2`. From the AWS console create an S3 bucket in `us-east-2` called `udacity-tf-<your_name>` e.g `udacity-tf-tscotto`
     - click next until created.
     - Update `_config.tf` in the `zone1` folder with your S3 bucket name where you will replace `<your_name>` with your name
