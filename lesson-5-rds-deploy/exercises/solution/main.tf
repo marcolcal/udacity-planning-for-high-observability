@@ -29,7 +29,7 @@ locals {
    cidr_block = "10.100.0.0/16"
 
    account_owner = local.name
-   name          = "${local.name}-project-west"
+   name          = "${local.name}-project"
    azs           = ["us-west-1b", "us-west-1c"]
    private_subnet_tags = {
      "kubernetes.io/role/internal-elb" = 1
