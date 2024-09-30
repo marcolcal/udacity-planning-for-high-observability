@@ -43,15 +43,15 @@ Clone the appropriate git repo with the starter code. There will be 2 folders. Z
     <!-- - Set your aws cli config to `us-east-2` -->
 [cloudshell-user@ip-10-136-35-243 ~]$ aws ec2 create-restore-image-task --object-key ami-0ec6fdfb365e5fc00.bin --bucket udacity-srend --name "udacity-malfaro"
 {
-    "ImageId": "ami-0b1d3fd8334c40be5"
+    "ImageId": "ami-01a58eb952351f789"
 }
-[cloudshell-user@ip-10-136-35-243 ~]$ aws ec2 copy-image --source-image-id ami-0b1d3fd8334c40be5 --source-region us-east-1 --region us-east-2 --name "udacity-malfaro"
+[cloudshell-user@ip-10-132-51-225 ~]$ aws ec2 copy-image --source-image-id ami-01a58eb952351f789 --source-region us-east-1 --region us-east-2 --name "udacity-malfaro"
 {
-    "ImageId": "ami-0c47b4cb39d647504"
+    "ImageId": "ami-0edf33c566e879af0"
 }
-[cloudshell-user@ip-10-136-35-243 ~]$ aws ec2 copy-image --source-image-id ami-0b1d3fd8334c40be5 --source-region us-east-1 --region us-west-1 --name "udacity-malfaro"
+[cloudshell-user@ip-10-132-51-225 ~]$ aws ec2 copy-image --source-image-id ami-01a58eb952351f789  --source-region us-east-1 --region us-west-1 --name "udacity-malfaro"
 {
-    "ImageId": "ami-00489f404a6148264"
+    "ImageId": "ami-02ba28e5109b1531f"
 }
 3. Close your CloudShell. Change your region to `us-east-2`. From the AWS console create an S3 bucket in `us-east-2` called `udacity-tf-<your_name>` e.g `udacity-tf-tscotto`
     - click next until created.
