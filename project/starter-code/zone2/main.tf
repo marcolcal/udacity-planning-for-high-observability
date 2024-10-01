@@ -42,14 +42,14 @@ locals {
 #   }
 #  }
 
- output "vpc_id" {
-   value = module.vpc_west.vpc_id
- }
+#  output "vpc_id" {
+#    value = module.vpc_west.vpc_id
+#  }
 
- output "private_subnet_ids" {
-   value = module.vpc_west.private_subnet_ids
- }
+#  output "private_subnet_ids" {
+#    value = module.vpc_west.private_subnet_ids
+#  }
 
- output "public_subnet_ids" {
-   value = module.vpc_west.public_subnet_ids
- }
+#  output "public_subnet_ids" {
+#    value = module.vpc_west.public_subnet_ids
+#  }
