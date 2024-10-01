@@ -15,7 +15,6 @@ locals {
 
 #    account_owner = local.name
 #    name          = "${local.name}-project"
-#    azs           = ["us-west-1a","us-west-1b"]
 #    #azs           = ["us-east-2a", "us-east-2b", "us-east-2c"]
 
 #    private_subnet_tags = {
@@ -26,7 +25,7 @@ locals {
 #    }
 #  }
 
-  module "vpc" {
+  module "vpc_west" {
    source     = "./modules/vpc"
    cidr_block = "10.100.0.0/16"
    account_owner = local.name
@@ -43,14 +42,14 @@ locals {
   }
  }
 
- output "vpc_id" {
-   value = module.vpc.vpc_id
- }
+#  output "vpc_id" {
+#    value = module.vpc.vpc_id
+#  }
 
- output "private_subnet_ids" {
-   value = module.vpc.private_subnet_ids
- }
+#  output "private_subnet_ids" {
+#    value = module.vpc.private_subnet_ids
+#  }
 
- output "public_subnet_ids" {
-   value = module.vpc.public_subnet_ids
- }
+#  output "public_subnet_ids" {
+#    value = module.vpc.public_subnet_ids
+#  }
