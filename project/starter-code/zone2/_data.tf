@@ -15,16 +15,21 @@ data "aws_caller_identity" "current" {}
      values = ["amzn2-ami-hvm*"]
    }
  }
-
-data "terraform_remote_state" "vpc_west" {
+data "terraform_remote_state" "vpc" {
   backend = "s3" 
   config = {
      bucket = "udacity-tf-malfaro"
      key    = "terraform/terraform.tfstate"
      region = "us-east-2"
    }
-
-
+}
+data "terraform_remote_state" "vpc_west" {
+  backend = "s3" 
+  config = {
+     bucket = "udacity-tf-malfaro-west"
+     key    = "terraform/terraform.tfstate"
+     region = "us-west-1"
+   }
 }
 
 data "aws_iam_policy" "instance-policy" {
