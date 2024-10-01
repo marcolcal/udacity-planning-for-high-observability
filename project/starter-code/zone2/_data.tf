@@ -23,14 +23,15 @@ data "terraform_remote_state" "vpc" {
      region = "us-east-2"
    }
 }
-# data "terraform_remote_state" "vpc_west" {
-#   backend = "s3" 
-#   config = {
-#      bucket = "udacity-tf-malfaro-west"
-#      key    = "terraform/terraform.tfstate"
-#      region = "us-west-1"
-#    }
-# }
+
+data "terraform_remote_state" "vpc_west" {
+  backend = "s3" 
+  config = {
+     bucket = "udacity-tf-malfaro-west"
+     key    = "terraform/terraform.tfstate"
+     region = "us-west-1"
+   }
+}
 
 data "aws_iam_policy" "instance-policy" {
   name = "app-udacity-instance-policy"
