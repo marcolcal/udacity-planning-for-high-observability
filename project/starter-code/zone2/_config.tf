@@ -5,9 +5,13 @@ terraform {
      region = "us-west-1"
    }
  }
-
+provider "aws" {
+  region = "us-east-2"
+  
+}
  provider "aws" {
    region = "us-west-1"
+   alias  = "usw1"
    #profile = "default"
    
    default_tags {
