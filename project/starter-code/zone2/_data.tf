@@ -15,6 +15,7 @@ data "aws_caller_identity" "current" {}
      values = ["amzn2-ami-hvm*"]
    }
  }
+ 
 data "terraform_remote_state" "vpc" {
   backend = "s3" 
   config = {
