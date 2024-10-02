@@ -13,19 +13,19 @@
    }
  }
  
-provider "aws" {
-  region = "us-east-2"
-  default_tags {
-     tags = local.tags
-   }
-}
+# provider "aws" {
+#   region = "us-east-2"
+#   default_tags {
+#      tags = local.tags
+#    }
+# }
 
  provider "aws" {
    region = "us-west-1"
    alias  = "usw1"
    #profile = "default"
    
-  #  default_tags {
-  #    tags = local.tags
-  #  }
+   default_tags {
+     tags = local.tags
+   }
  }
