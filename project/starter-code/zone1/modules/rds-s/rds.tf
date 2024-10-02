@@ -28,6 +28,8 @@ resource "aws_rds_cluster" "udacity_cluster-s" {
   db_cluster_parameter_group_name = aws_rds_cluster_parameter_group.cluster_pg-s.name
   vpc_security_group_ids   = [aws_security_group.db_sg_2.id]
   db_subnet_group_name     = aws_db_subnet_group.udacity_db_subnet_group.name
+  replication_source_identifier   = var.primary_db_cluster_arn
+  source_region                   = "us-east-2"
   engine_mode              = "provisioned"
   database_name            = "udacityc2"
   master_username          = "udacity"
@@ -37,7 +39,7 @@ resource "aws_rds_cluster" "udacity_cluster-s" {
   skip_final_snapshot      = true
   storage_encrypted        = false
   backup_retention_period  = 5
-  depends_on = [aws_rds_cluster_parameter_group.cluster_pg-s]
+  depends_on = [aws_rds_cluster_parameter_group.cluster_pg-s,var.primary_db_cluster_arn, var.primary_db_instance_arn]
 }
 
 resource "aws_rds_cluster_instance" "udacity_instance-s" {
