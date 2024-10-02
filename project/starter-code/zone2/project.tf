@@ -33,3 +33,5 @@ resource "kubernetes_namespace" "udacity" {
     module.project_eks
   ]
 }
+
+
